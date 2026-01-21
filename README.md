@@ -14,10 +14,9 @@ Note that this is different than your previous exercises... they were on GitHub 
 
 ## Problem overview
 
-This repo contains two branches: main and ex1. There is a single line text conflict in one cell between the two branches. The goal of this exercise is 
-two-fold; to learn how to stage and commit changes to a branch and then to learn how to merge the changes from one branch to another.
+This repo contains two branches: main and ex1. There is a single line text conflict in one cell between the two branches, as well as other line differences that do not conflict.
 
-Below is a graph of the commit situation in the repo right now... the commits on each branch have produced a single line conflict you need to deal with before merging
+Below is a graph of the commit situation in the repo right now... each * indicates a commit and the lines show the evolution of the repo over time
 
 ```
 ----*----*[main]
@@ -51,7 +50,7 @@ And after Part 2 the new graph will look like
      -  Forking this repo made a copy of this repo on YOUR GitHub.  You have direct write access to the forked copy, but not the original repo
 1. Let's get a local copy of your forked repo...
      - login to Datahub
-     - if you have not already created SSH keys for datahub, do so now and place them on your GitHub account per https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account  <br> **NOTE: these keys are different than the ones you made on your laptop. Each computer you use with GitHub needs its own keys!**
+     - if you have not already created SSH keys for datahub, do so now and place them on your GitHub account per https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account  <br> **NOTE:** these keys are different than the ones you made on your laptop. Each computer you use with GitHub needs its own keys!
      - Open a terminal window on Datahub.
      - Type: `cd ~/private` which will put you inside a subdirectory of your datahub file system.
      - Type: `git clone git@github.com:your_username/GitExercise_Conflicts.git` <br> but replace  `your_username` with your actual GitHub username
@@ -62,10 +61,11 @@ And after Part 2 the new graph will look like
      -  Just for fun (you don't have to do this substep, but its a good teaching point)
           -  run both cells of the notebook to see the plot
           -  Unfortunately running the notebook changes the metadata stored inside it.  The counter for how many times a cell was run, the binary data from the plot.  This is stuff we do NOT want to version control... its not important and it clogs up the system because notebook metadata for plots can be very big.
-          -  Before we do any git operations it is a best practice to click on the pulldown menu item `Edit -> Clear Outputs of All Cells`.  Do this now!
-1. Lets add a change (do this!):
-     - the last line of the notebook currently says `ax.grid()` which is bad Python form...
-     - change it to the more readable and more Pythonic `ax.grid('on')`
+          -  Save the notebook, open a terminal window in this directory and type `git diff`, now you will see the insane line differences generated just by running the notebook
+          -  Before we do any git operations it is a best practice to click on the pulldown menu item `Edit -> Clear Outputs of All Cells`.  Do this now, and press save so we don't have to put this BS into the git history
+1. Lets add a change we do want:
+     - the last line of the notebook currently says `ax.grid()` which (although it works) is bad Python form...
+     - change it to the more readable and more Pythonic `ax.grid('on')` 
      - save the file when you are done!
 1. Add / commit the changes using the GUI (git extension for Jupyterlab)
      - Yes you could do all this in the terminal window, but I'm showing you the GUI way here.  If you're a command line hero, feel free to do this task there :)
